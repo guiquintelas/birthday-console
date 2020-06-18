@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using AniversarioConsole.MenuActions;
 
@@ -32,11 +32,13 @@ namespace AniversarioConsole.Services
             {
                 Console.WriteLine("\n Opção inválida!");
                 ShowMenu();
+                return;
             }
             
             Console.WriteLine();
             
             selectedAction?.Action();
+            ShowMenu();
         }
     }
 }
