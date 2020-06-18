@@ -6,7 +6,7 @@ namespace BLL.Repositories
 {
     public class PersonRepository
     {
-        private readonly List<Person> TodasPessoas = new List<Person>()
+        private static readonly List<Person> AllPersons = new List<Person>()
         {
             new Person()
             {
@@ -18,39 +18,23 @@ namespace BLL.Repositories
             {
                 FirstName = "Teste 2",
                 LastName = "Opa",
-                BirthDate = DateTime.Parse("1996-10-07")
+                BirthDate = DateTime.Parse("1996-05-07")
             },
         };
 
-        public List<Person> Index()
+        public List<Person> All()
         {
-            return TodasPessoas;
+            return AllPersons;
         }
         
-        public List<Person> FilterByNome(string termo)
+        public List<Person> FilterByName(string name)
         {
-            return TodasPessoas.FindAll(p => p.FirstName.ToLower().Contains(termo.ToLower()));
+            return AllPersons.FindAll(p => p.FirstName.ToLower().Contains(name.ToLower()));
         }
         
         public void Add(Person person)
         {
-            TodasPessoas.Add(person);
-        }
-
-        public Person GetByNome(string nome)
-        {
-            return TodasPessoas.Find(p => p.FirstName.Contains(nome));
-        }
-
-        public void DeleteByNome(string nome)
-        {
-            TodasPessoas.Remove(GetByNome(nome));
-        }
-        
-        public void UpdateByNome(Person person)
-        {
-            TodasPessoas.Remove(GetByNome(person.FirstName));
-            TodasPessoas.Add(person);
+            AllPersons.Add(person);
         }
     }
 }
