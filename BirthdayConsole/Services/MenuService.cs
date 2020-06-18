@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using AniversarioConsole.MenuActions;
 
@@ -8,7 +8,8 @@ namespace AniversarioConsole.Services
     {
         public static readonly List<MenuAction> Actions = new List<MenuAction>()
         {
-            new ExitAction()
+            new SearchPersonByNameAction(),
+            new ExitAction(),
         }; 
         
         public void ShowMenu()
