@@ -29,7 +29,10 @@ namespace BLL.Repositories
         
         public List<Person> FilterByName(string name)
         {
-            return AllPersons.FindAll(p => p.FirstName.ToLower().Contains(name.ToLower()));
+            return AllPersons.FindAll(p => 
+                p.FirstName.ToLower().Contains(name.ToLower()) || 
+                p.LastName.ToLower().Contains(name.ToLower())
+            );
         }
         
         public void Add(Person person)
