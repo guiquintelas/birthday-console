@@ -39,6 +39,7 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="App.cs" />
+        <Compile Include="MenuActions\DeletePersonAction.cs" />
         <Compile Include="MenuActions\ExitAction.cs" />
         <Compile Include="MenuActions\InsertPersonAction.cs" />
         <Compile Include="MenuActions\MenuAction.cs" />

@@ -38,6 +38,16 @@ namespace BLL.Repositories
         
         public void Add(Person person)
         {
+        public bool RemoveById(string id)
+        {
+            var countBefore = _allPersons.Count;
+
+            _allPersons = _allPersons.FindAll(
+                person => !string.Equals(person.Id, id, StringComparison.CurrentCultureIgnoreCase)
+            );
+
+            return countBefore != _allPersons.Count;
+        }
         private void LoadFromFile()
         {
             using (var stream = new StreamReader(FilePath, Encoding.Default))
