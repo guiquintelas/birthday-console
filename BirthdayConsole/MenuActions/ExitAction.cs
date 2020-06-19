@@ -6,11 +6,10 @@ namespace AniversarioConsole.MenuActions
 {
     public class ExitAction : MenuAction
     {
-        public ExitAction() : base("Sair") {}
+        public ExitAction() : base("Salvar e Sair") {}
 
         public override void Action()
         {            
-            Console.WriteLine("Tchau tchau!");
             Environment.Exit(1);
         }
     }

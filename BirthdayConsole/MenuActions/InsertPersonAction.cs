@@ -9,7 +9,7 @@ namespace AniversarioConsole.MenuActions
         public InsertPersonAction() : base("Adicionar nova pessoa")
         {
         }
-
+    
         public override void Action()
         {
             var newPerson = new Person();
