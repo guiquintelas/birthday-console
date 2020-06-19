@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -17,7 +17,7 @@ namespace BLL.Repositories
         }
 
         public void Dispose()
-            {
+        {
             this.WriteToFile();
         }
 
@@ -27,9 +27,16 @@ namespace BLL.Repositories
             return _allPersons;
         }
         
+        public Person FindById(string id)
+        {
+            return _allPersons.Find(
+                p => string.Equals(p.Id, id, StringComparison.CurrentCultureIgnoreCase)
+            );
+        }
+        
         public List<Person> FilterByName(string name)
         {
-            return AllPersons.FindAll(p => 
+            return _allPersons.FindAll(p => 
                 p.FirstName.ToLower().Contains(name.ToLower()) || 
                 p.LastName.ToLower().Contains(name.ToLower())
             );
@@ -50,6 +57,26 @@ namespace BLL.Repositories
 
             return countBefore != _allPersons.Count;
         }
+        
+        public bool Update(Person person)
+        {
+            int personIndex;
+            
+            try
+            {
+                personIndex = _allPersons.FindIndex(
+                    p => string.Equals(p.Id, person.Id, StringComparison.CurrentCultureIgnoreCase)
+                );
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+
+            _allPersons[personIndex] = person;
+            return true;
+        }
+
         private void LoadFromFile()
         {
             using (var stream = new StreamReader(FilePath, Encoding.Default))

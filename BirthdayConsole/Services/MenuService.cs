@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using AniversarioConsole.MenuActions;
 
@@ -11,6 +11,7 @@ namespace AniversarioConsole.Services
             new SearchPersonByNameAction(),
             new InsertPersonAction(),
             new DeletePersonAction(),
+            new UpdatePersonAction(),
             new ExitAction(),
         }; 
         
