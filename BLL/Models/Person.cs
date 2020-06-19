@@ -23,6 +23,7 @@ namespace BLL.Models
         
         public void ConsoleWrite() 
         {
+            Console.WriteLine($"ID: {this.Id}");
             Console.WriteLine($"Nome: {this.FirstName}");
             Console.WriteLine($"Sobrenome: {this.LastName}");
             Console.WriteLine($"Data de Nascimento: {this.BirthDate}");
