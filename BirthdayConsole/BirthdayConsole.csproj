@@ -40,6 +40,7 @@
     <ItemGroup>
         <Compile Include="App.cs" />
         <Compile Include="MenuActions\ExitAction.cs" />
+        <Compile Include="MenuActions\InsertPersonAction.cs" />
         <Compile Include="MenuActions\MenuAction.cs" />
         <Compile Include="MenuActions\SearchPersonByNameAction.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />

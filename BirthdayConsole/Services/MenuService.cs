@@ -9,6 +9,7 @@ namespace AniversarioConsole.Services
         public static readonly List<MenuAction> Actions = new List<MenuAction>()
         {
             new SearchPersonByNameAction(),
+            new InsertPersonAction(),
             new ExitAction(),
         }; 
         
