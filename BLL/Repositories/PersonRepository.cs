@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Text;
 using BLL.Models;
 
 namespace BLL.Repositories
@@ -7,6 +9,8 @@ namespace BLL.Repositories
     public class PersonRepository
     {
         private static readonly string FilePath = Path.Combine(Environment.CurrentDirectory, "../../Res/db.csv");
+        private static List<Person> _allPersons = new List<Person>();
+        
         public PersonRepository()
         {
             this.LoadFromFile();
@@ -16,16 +20,11 @@ namespace BLL.Repositories
             {
             this.WriteToFile();
         }
-            {
-                FirstName = "Teste 2",
-                LastName = "Opa",
-                BirthDate = DateTime.Parse("1996-05-07")
-            },
-        };
+
 
         public List<Person> All()
         {
-            return AllPersons;
+            return _allPersons;
         }
         
         public List<Person> FilterByName(string name)
@@ -38,6 +37,9 @@ namespace BLL.Repositories
         
         public void Add(Person person)
         {
+            _allPersons.Add(person);
+        }
+        
         public bool RemoveById(string id)
         {
             var countBefore = _allPersons.Count;
