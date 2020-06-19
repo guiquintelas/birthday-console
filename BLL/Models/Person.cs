@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.CodeDom;
 using System.Linq;
 
@@ -16,7 +16,7 @@ namespace BLL.Models
                     .ToArray());
         }
 
-        private string Id { get; }
+        public string Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime BirthDate { get; set; }
