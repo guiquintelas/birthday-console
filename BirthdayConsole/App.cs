@@ -6,8 +6,8 @@ namespace AniversarioConsole
 {
     internal static class App
     {
-        private static readonly MenuService MenuService = new MenuService();
-        public static readonly PersonRepository PersonRepository = new PersonRepository();
+        private static MenuService MenuService;
+        public static PersonRepository PersonRepository;
 
         private static bool _isDisposing;
 
@@ -16,6 +16,9 @@ namespace AniversarioConsole
             AppDomain.CurrentDomain.ProcessExit += Dispose;
             Console.CancelKeyPress += Dispose;
             
+            PersonRepository = new PersonRepository();
+            MenuService = new MenuService();
+
             Console.Write("Bem Vindo - Gerenciador de Aniversários");
             MenuService.ShowMenu();
         }

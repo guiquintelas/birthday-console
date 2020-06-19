@@ -13,8 +13,27 @@ namespace AniversarioConsole.Services
             new DeletePersonAction(),
             new UpdatePersonAction(),
             new ExitAction(),
-        }; 
-        
+        };
+
+        public MenuService()
+        {
+            var birthdayPersons = App.PersonRepository.FilterByBirthDay();
+
+            if (birthdayPersons.Count == 0)
+            {
+                Console.WriteLine("Nenhum aniversariante hoje :/");
+                Console.WriteLine();
+                return;
+            }
+            
+            Console.WriteLine("Aniversariantes de hoje!");
+            foreach (var person in birthdayPersons)
+            {
+                Console.WriteLine($"{person.FirstName} {person.LastName} - {person.BirthDate:dd/MM/yyyy}");
+            }
+            Console.WriteLine();
+        }
+
         public void ShowMenu()
         {
             Console.WriteLine("Selecione uma das opções abaixo:");

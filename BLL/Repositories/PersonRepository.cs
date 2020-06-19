@@ -22,9 +22,9 @@ namespace BLL.Repositories
         }
 
 
-        public List<Person> All()
+        public List<Person> FilterByBirthDay()
         {
-            return _allPersons;
+            return _allPersons.FindAll(p => p.DaysToBirthday() >= 365);
         }
         
         public Person FindById(string id)

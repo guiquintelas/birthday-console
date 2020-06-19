@@ -30,7 +30,7 @@ namespace BLL.Models
             Console.WriteLine($"Dias para o próximo aniversário: {this.DaysToBirthday()}");
         }
 
-        private double DaysToBirthday()
+        public double DaysToBirthday()
         {
             var nextBirthday = new DateTime(DateTime.Today.Year, this.BirthDate.Month, this.BirthDate.Day);
 
