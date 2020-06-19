@@ -26,7 +26,7 @@ namespace BLL.Models
             Console.WriteLine($"ID: {this.Id}");
             Console.WriteLine($"Nome: {this.FirstName}");
             Console.WriteLine($"Sobrenome: {this.LastName}");
-            Console.WriteLine($"Data de Nascimento: {this.BirthDate}");
+            Console.WriteLine($"Data de Nascimento: {this.BirthDate:dd/MM/yyyy}");
             Console.WriteLine($"Dias para o próximo aniversário: {this.DaysToBirthday()}");
         }
 
